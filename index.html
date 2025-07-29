@@ -1,9 +1,9 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almog Shtaiqmann - Personal Portfolio</title>
+    <title>Aviv Binder - Personal Portfolio</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,9 +22,18 @@
             font-family: 'Inter', sans-serif;
             background-color: #f0f4f8; /* Light blue-gray background */
         }
-        /* Custom gradient for the special card border */
-        .gradient-border {
-            background: linear-gradient(to right, #8e44ad, #3498db);
+        /* Styling for list items in experience section */
+        .experience-list li {
+            position: relative;
+            padding-left: 1.5rem; /* Space for the bullet */
+            margin-bottom: 0.5rem;
+        }
+        .experience-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #1a3a5d; /* Bullet color */
+            font-weight: bold;
         }
     </style>
 </head>
@@ -33,14 +42,14 @@
     <!-- Header Section -->
     <header class="bg-[#1a3a5d] text-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold">
-                <i class="fa-solid fa-hand-point-right"></i> <!-- Icon from image -->
+            <a href="#" class="text-3xl font-bold">
+                👋
             </a>
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#home" class="hover:text-blue-300 transition duration-300">Home</a>
                 <a href="#experience" class="hover:text-blue-300 transition duration-300">Work Experience</a>
-                <a href="#projects" class="hover:text-blue-300 transition duration-300">Personal Projects</a>
-                <a href="#clab" class="hover:text-blue-300 transition duration-300">C-Lab Course</a>
+                <a href="#education" class="hover:text-blue-300 transition duration-300">Education</a>
+                <a href="#connect" class="hover:text-blue-300 transition duration-300">Connect</a>
             </div>
             <!-- Mobile Menu Button -->
             <button id="mobile-menu-button" class="md:hidden text-2xl">
@@ -51,8 +60,8 @@
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
             <a href="#home" class="block py-2 hover:text-blue-300">Home</a>
             <a href="#experience" class="block py-2 hover:text-blue-300">Work Experience</a>
-            <a href="#projects" class="block py-2 hover:text-blue-300">Personal Projects</a>
-            <a href="#clab" class="block py-2 hover:text-blue-300">C-Lab Course</a>
+            <a href="#education" class="block py-2 hover:text-blue-300">Education</a>
+            <a href="#connect" class="block py-2 hover:text-blue-300">Connect</a>
         </div>
     </header>
 
@@ -97,38 +106,31 @@
             </div>
         </section>
 
-        <!-- Projects & Experience Grid -->
+        <!-- Work Experience Section -->
         <section id="experience" class="py-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-[#1a3a5d] mb-8 text-center">Work Experience</h2>
                 
-                <!-- Work Experience Card -->
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <h3 class="text-2xl font-bold text-[#1a3a5d] mb-3">Work Experience</h3>
-                    <p class="text-gray-600 mb-6">Read about my professional experience and roles.</p>
-                    <a href="#" class="inline-block bg-[#1a3a5d] text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">View Experience</a>
+                <!-- Experience 1: IDF -->
+                <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-semibold">Application Developer (Israel Defense Force)</h3>
+                    <p class="text-gray-500 mt-1">Lotem Technology Unit, IDF | 2018-2021</p>
+                    <ul class="mt-4 text-gray-700 experience-list">
+                        <li>Engineered and led the development of a mission-critical Transportation Management System (TMS) using Python, Flask, and SQL, which streamlined supply chain operations and improved operational readiness.</li>
+                        <li>Developed a secure logistics iPad application in Swift to automate the tracking, approval, and billing of equipment deliveries in key operational zones.</li>
+                        <li>Implemented scalable architecture and modern design patterns across all projects to ensure the high performance, reliability, and maintainability of mission-critical systems.</li>
+                        <li>Collaborated with cross-functional teams, including product managers and UX/UI designers, to drive innovation and optimize the user experience of all systems.</li>
+                    </ul>
                 </div>
 
-                <!-- Personal Projects Card -->
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <h3 class="text-2xl font-bold text-[#1a3a5d] mb-3">Personal Projects</h3>
-                    <p class="text-gray-600 mb-6">Discover my personal projects and the technologies I used.</p>
-                    <a href="#" class="inline-block bg-[#1a3a5d] text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">View Projects</a>
-                </div>
-
-                <!-- Special Course Card with Gradient Border -->
-                <div id="projects" class="p-1 rounded-xl gradient-border shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div class="bg-white h-full p-8 rounded-lg">
-                        <h3 class="text-2xl font-bold text-[#1a3a5d] mb-3">My Course on Univeli</h3>
-                        <p class="text-gray-600 mb-6">Zero To Hero - All you need to know to find your first job</p>
-                        <a href="#" class="inline-block bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">SEE COURSE CONTENT AND MORE!</a>
-                    </div>
-                </div>
-
-                <!-- C Lab Course Card -->
-                <div id="clab" class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <h3 class="text-2xl font-bold text-[#1a3a5d] mb-3">C Lab Course</h3>
-                    <p class="text-gray-600 mb-6">Explore my final project in Laboratory C 20465 - Grade 100 and over 20,000 Views!</p>
-                    <a href="#" class="inline-block bg-[#1a3a5d] text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">Learn More</a>
+                <!-- Experience 2: ORT -->
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold">Computer Science Instructor</h3>
+                    <p class="text-gray-500 mt-1">ORT Colleges, Israel | May 2023 – May 2024</p>
+                    <ul class="mt-4 text-gray-700 experience-list">
+                        <li>Instructed high school students in Java for the national bagrut exam, focusing on Object-Oriented Programming (OOP) principles and algorithmic problem-solving.</li>
+                        <li>Led and evaluated final matriculation projects in HTML, CSS, and JavaScript, serving as an official project examiner.</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -140,8 +142,7 @@
                 <div class="bg-white p-8 rounded-xl shadow-lg">
                     <h3 class="text-2xl font-semibold">The Open University (graduation 2026-2027)</h3>
                     <p class="text-gray-600 mt-1">B.Sc. Computer Science, 3rd Year</p>
-                    <p class="text-gray-600 mt-2"><span class="font-semibold">GPA:</span> 86</p>
-                    <p class="text-gray-600 mt-4"><span class="font-semibold">Relevant Coursework:</span> Data Structures (87), Algorithms (87), Introduction to Computer Science (85), C-Linux (98)</p>
+                    <p class="text-gray-600 mt-4"><span class="font-semibold">Relevant Coursework:</span> Data Structures, Algorithms, Introduction to Computer Science, C-Linux</p>
                 </div>
             </div>
         </section>
@@ -172,7 +173,7 @@
     <footer class="bg-[#1a3a5d] text-white">
         <div class="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center">
             <div class="text-center md:text-left mb-4 md:mb-0">
-                <p>&copy; 2025 Almog Shtaiqmann. All rights reserved.</p>
+                <p>&copy; 2025 Aviv Binder. All rights reserved.</p>
                 <p class="text-sm text-gray-400 mt-1">Profile views: <span class="font-bold">3,062</span></p> 
                 <!-- Note: The view counter is static. A real counter requires a backend service. -->
             </div>
