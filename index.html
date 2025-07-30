@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aviv Binder - Programmer & Tech Enthusiast</title>
+    <title>Aviv Binder - Software Engineer</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,37 +19,12 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f7fafc; /* Lighter gray background */
         }
         /* Custom gradient for titles */
         .gradient-text {
             background: -webkit-linear-gradient(45deg, #3b82f6, #8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-        .card {
-            background-color: white;
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e2e8f0;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .skill-badge {
-            background-color: #eef2ff;
-            color: #4f46e5;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            transition: all 0.3s ease;
-        }
-        .skill-badge:hover {
-            background-color: #4f46e5;
-            color: white;
         }
         .experience-list li {
             position: relative;
@@ -64,30 +39,32 @@
             font-weight: bold;
             font-size: 1.2rem;
         }
-        /* Floating Action Button for WhatsApp */
-        .fab {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 4rem;
-            height: 4rem;
-            background-color: #25D366;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            font-size: 2rem;
-            z-index: 1000;
-            transition: transform 0.3s ease;
+        .skill-badge {
+            background-color: #eef2ff;
+            color: #4f46e5;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
         }
-        .fab:hover {
-            transform: scale(1.1);
+        .skill-badge:hover {
+            background-color: #4f46e5;
+            color: white;
+            transform: translateY(-2px);
+        }
+        /* Animation for sections sliding in */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body class="text-gray-700">
+<body class="bg-gray-50 text-gray-700">
 
     <!-- Header Section -->
     <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
@@ -95,16 +72,18 @@
             <a href="#" class="text-4xl font-bold">
                 🤙
             </a>
-            <div class="hidden md:flex items-center space-x-8 text-gray-600 font-medium">
-                <a href="#home" class="hover:text-blue-500 transition duration-300">Home</a>
-                <a href="#skills" class="hover:text-blue-500 transition duration-300">Skills</a>
-                <a href="#experience" class="hover:text-blue-500 transition duration-300">Experience</a>
-                <a href="#education" class="hover:text-blue-500 transition duration-300">Education</a>
-                <a href="#connect" class="hover:text-blue-500 transition duration-300">Connect</a>
+            <div class="flex items-center space-x-6">
+                <div class="hidden md:flex items-center space-x-8 text-gray-600 font-medium">
+                    <a href="#home" class="hover:text-blue-500 transition duration-300">Home</a>
+                    <a href="#skills" class="hover:text-blue-500 transition duration-300">Skills</a>
+                    <a href="#experience" class="hover:text-blue-500 transition duration-300">Experience</a>
+                    <a href="#education" class="hover:text-blue-500 transition duration-300">Education</a>
+                    <a href="#connect" class="hover:text-blue-500 transition duration-300">Connect</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-3xl text-gray-600">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-3xl text-gray-600">
-                <i class="fa-solid fa-bars"></i>
-            </button>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
             <a href="#home" class="block py-2 text-gray-600 hover:text-blue-500">Home</a>
@@ -119,7 +98,7 @@
     <main class="container mx-auto px-6 py-12">
 
         <!-- Hero/About Me Section -->
-        <section id="home" class="text-center py-20">
+        <section id="home" class="text-center py-20 fade-in-section">
             <img 
                 src="https://raw.githubusercontent.com/AvivBinder99/AvivBinder99.github.io/main/IMG_3887.jpg" 
                 alt="Aviv Binder Profile Picture" 
@@ -127,100 +106,127 @@
                 onerror="this.onerror=null;this.src='https://placehold.co/160x160/e0e0e0/333?text=Aviv';"
             >
             <h1 class="text-5xl font-bold text-gray-800 mt-8 mb-2">Aviv Binder</h1>
-            <h2 class="text-2xl font-medium gradient-text mb-6">Programmer & Tech Enthusiast</h2>
-            <p class="max-w-3xl mx-auto text-lg text-gray-600">
-                I'm a 3rd year Computer Science student with hands-on experience in frontend, backend development, mobile application development, and DevOps.
-            </p>
+            <h2 class="text-2xl font-medium gradient-text mb-6">Software Engineer | Low-Level Systems & Cloud Technologies</h2>
+            <div class="max-w-3xl mx-auto text-lg text-left">
+                <p id="about-me-text">
+                    I am a passionate software engineer with a deep interest in low-level programming, hardware, and mathematical problem-solving. With experience in C, Python, and Java, I enjoy tackling complex challenges and optimizing systems for efficiency.
+                    <span id="more-text" class="hidden">
+                        <br><br>
+                        My academic journey includes courses in computer organization, algorithms, and systems programming, which have given me a strong foundation in hardware and software integration. One of my favorite projects was developing an assembler, which deepened my understanding of computer architecture.
+                        <br><br>
+                        I have worked on various projects, including set operations management software and a password generator, demonstrating my ability to design and develop software with precision and creativity.
+                        <br><br>
+                        Currently, I am expanding my knowledge in AI, eager to bridge the gap between software, hardware, and intelligent systems. I believe that the intersection of these fields holds endless possibilities for innovation.
+                        <br><br>
+                        Beyond coding, I love exploring new technologies, refining my problem-solving skills, and continuously learning. I am always excited about opportunities that challenge me to grow, especially in areas like cloud computing, distributed systems, and developing scalable solutions.
+                    </span>
+                </p>
+                <button id="read-more-btn" class="text-blue-500 hover:underline mt-4">Read More</button>
+            </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-16 bg-white rounded-2xl">
+        <section id="skills" class="py-16 fade-in-section">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Technical & Personal Skills</h2>
-                <div class="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
-                    <span class="skill-badge">Kotlin & Java</span>
-                    <span class="skill-badge">C</span>
-                    <span class="skill-badge">C++</span>
-                    <span class="skill-badge">NodeJS / Typescript</span>
-                    <span class="skill-badge">TypeScript & Angular</span>
-                    <span class="skill-badge">Android Development</span>
-                    <span class="skill-badge">Python & Flask</span>
-                    <span class="skill-badge">DevOps (CI/CD, GitHub Actions)</span>
-                    <span class="skill-badge">Web Development</span>
-                    <span class="skill-badge">SQL & Databases</span>
-                    <span class="skill-badge">Scalable Architecture</span>
-                    <span class="skill-badge">Design Patterns</span>
-                    <span class="skill-badge">Autodidact</span>
-                    <span class="skill-badge">Fast Learner</span>
-                    <span class="skill-badge">Teamwork</span>
-                    <span class="skill-badge">Mentoring</span>
+                <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Skills</h2>
+                <div class="max-w-5xl mx-auto space-y-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-4">Languages</h3>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <span class="skill-badge">C</span>
+                            <span class="skill-badge">C++</span>
+                            <span class="skill-badge">C#</span>
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">Java</span>
+                            <span class="skill-badge">Kotlin</span>
+                            <span class="skill-badge">TypeScript</span>
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">HTML</span>
+                            <span class="skill-badge">SQL</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-4">Frameworks & Tools</h3>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <span class="skill-badge">.NET</span>
+                            <span class="skill-badge">Node.JS</span>
+                            <span class="skill-badge">React</span>
+                            <span class="skill-badge">Angular</span>
+                            <span class="skill-badge">Flask</span>
+                            <span class="skill-badge">Android Development</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-4">Platforms & Cloud</h3>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <span class="skill-badge">Azure</span>
+                            <span class="skill-badge">DevOps (CI/CD)</span>
+                            <span class="skill-badge">GitHub Actions</span>
+                            <span class="skill-badge">Databases</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Work Experience Section -->
-        <section id="experience" class="py-16">
+        <section id="experience" class="py-16 fade-in-section">
             <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Work Experience</h2>
             <div class="max-w-4xl mx-auto space-y-10">
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-gray-800">Software Developer</h3>
-                    <p class="text-gray-500 mt-1">Lotem Unit - IDF | 2018-2021</p>
+                <div class="bg-white rounded-xl p-8 shadow-md border border-gray-200">
+                    <h3 class="text-2xl font-semibold text-gray-800">Software Developer and Math Teacher</h3>
+                    <p class="text-gray-500 mt-1">Lotem Unit - IDF | December 2018 - August 2021</p>
                     <ul class="mt-4 text-gray-600 experience-list">
-                        <li><b>Led Full Project Development:</b> Designed, developed, and deployed a complete software project from scratch, handling both backend (FastAPI, MongoDB, RabbitMQ) and frontend (React-TS) development.</li>
-                        <li><b>Maintained & Improved Multiple Projects:</b> Enhanced existing systems by optimizing performance, fixing critical issues, and implementing new features.</li>
-                        <li><b>Implemented Scalable Solutions:</b> Developed efficient, maintainable codebases, ensuring long-term stability and scalability.</li>
-                        <li><b>Problem-Solving & Optimization:</b> Identified and resolved bottlenecks, improving system reliability and performance.</li>
+                        <li>Led Full Project Development: Designed, developed, and deployed a complete software project from scratch, handling both backend (FastAPI, MongoDB, RabbitMQ) and frontend (React-TS) development.</li>
+                        <li>Maintained & Improved Multiple Projects: Enhanced existing systems by optimizing performance, fixing critical issues, and implementing new features.</li>
+                        <li>Implemented Scalable Solutions: Developed efficient, maintainable codebases, ensuring long-term stability and scalability.</li>
+                        <li>Problem-Solving & Optimization: Identified and resolved bottlenecks, improving system reliability and performance.</li>
+                        <li>Pioneered a unit-level mathematics program that enabled fellow soldiers to achieve significant improvements on their national exam scores.</li>
                     </ul>
                 </div>
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-gray-800">Computer Science Instructor</h3>
+                <div class="bg-white rounded-xl p-8 shadow-md border border-gray-200">
+                    <h3 class="text-2xl font-semibold text-gray-800">Computer Science Teacher</h3>
                     <p class="text-gray-500 mt-1">ORT Colleges, Israel | May 2023 – May 2024</p>
                     <ul class="mt-4 text-gray-600 experience-list">
-                        <li>Instructed high school students in Java for the national bagrut exam, focusing on Object-Oriented Programming (OOP) principles and algorithmic problem-solving.</li>
-                        <li>Led and evaluated final matriculation projects in HTML, CSS, and JavaScript, serving as an official project examiner.</li>
+                        <li>Taught object-oriented Java and algorithmic problem-solving to high school students in preparation for the national bagrut examination.</li>
+                        <li>Led and evaluated final web development projects (HTML, CSS, JS).</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <!-- Education Section -->
-        <section id="education" class="py-16">
+        <section id="education" class="py-16 fade-in-section">
             <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Education</h2>
-            <div class="max-w-4xl mx-auto space-y-10">
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-gray-800">The Open University (graduation 2026-2027)</h3>
-                    <p class="text-gray-600 mt-1">B.Sc. Computer Science, 3rd Year</p>
-                    <p class="text-gray-600 mt-2"><span class="font-semibold">GPA:</span> 86</p>
-                    <p class="text-gray-600 mt-4"><span class="font-semibold">Relevant Coursework:</span> Data Structures, Algorithms, Introduction to Computer Science, C-Linux</p>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl p-8 shadow-md border border-gray-200">
+                    <h3 class="text-2xl font-semibold text-gray-800">B.Sc. in Computer Science | The Open University Of Israel</h3>
+                    <p class="text-gray-500 mt-1">Graduation: 2026</p>
+                    <p class="text-gray-600 mt-2"><span class="font-semibold">GPA:</span> 87</p>
                 </div>
             </div>
         </section>
 
         <!-- Connect with Me Section -->
-        <section id="connect" class="text-center py-20">
+        <section id="connect" class="text-center py-20 fade-in-section">
             <h2 class="text-4xl font-bold text-gray-800 mb-4">Let's Connect!</h2>
-            <p class="text-gray-600 mb-8 max-w-lg mx-auto">I'm always open to discussing new opportunities and creative ideas. Feel free to reach out.</p>
-            <div class="flex justify-center items-center flex-wrap gap-6 text-lg">
-                <a href="mailto:binderaviv@gmail.com" class="flex items-center space-x-2 text-blue-500 hover:underline">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span>binderaviv@gmail.com</span>
-                </a>
-                <a href="https://www.linkedin.com/in/avivbinder/" target="_blank" class="flex items-center space-x-2 text-blue-500 hover:underline">
-                    <i class="fa-brands fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="tel:050-582-2621" class="flex items-center space-x-2 text-blue-500 hover:underline">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>050-582-2621</span>
-                </a>
+            <p class="text-gray-600 mb-8 max-w-lg mx-auto">I'm always open to discussing new opportunities. Feel free to reach out.</p>
+            <div class="flex justify-center items-center flex-col sm:flex-row gap-4">
+                <div class="flex items-center bg-gray-200 rounded-lg p-3">
+                    <a href="mailto:binderaviv@gmail.com" class="font-mono text-gray-700">binderaviv@gmail.com</a>
+                    <button class="ml-4 text-gray-500 hover:text-blue-500" onclick="copyToClipboard('binderaviv@gmail.com', this)">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+                <div class="flex items-center bg-gray-200 rounded-lg p-3">
+                    <a href="tel:050-582-2621" class="font-mono text-gray-700">050-582-2621</a>
+                    <button class="ml-4 text-gray-500 hover:text-blue-500" onclick="copyToClipboard('0505822621', this)">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
             </div>
         </section>
     </main>
-
-    <!-- WhatsApp Floating Action Button -->
-    <a href="https://wa.me/972505822621" target="_blank" class="fab" aria-label="Chat with me on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
     <!-- Footer Section -->
     <footer class="bg-gray-800 text-white">
@@ -230,12 +236,56 @@
     </footer>
     
     <script>
-        // JavaScript for mobile menu toggle
+        // --- Read More Button ---
+        const readMoreBtn = document.getElementById('read-more-btn');
+        const moreText = document.getElementById('more-text');
+
+        readMoreBtn.addEventListener('click', function() {
+            moreText.classList.toggle('hidden');
+            if (moreText.classList.contains('hidden')) {
+                readMoreBtn.textContent = 'Read More';
+            } else {
+                readMoreBtn.textContent = 'Read Less';
+            }
+        });
+
+        // --- Copy to Clipboard ---
+        function copyToClipboard(text, buttonElement) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Visual feedback
+            const originalIcon = buttonElement.innerHTML;
+            buttonElement.innerHTML = '<i class="fa-solid fa-check text-green-500"></i>';
+            setTimeout(() => {
+                buttonElement.innerHTML = originalIcon;
+            }, 1500);
+        }
+
+        // --- Mobile Menu Toggle ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Animate sections on scroll ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        });
+
+        const sectionsToAnimate = document.querySelectorAll('.fade-in-section');
+        sectionsToAnimate.forEach((section) => {
+            observer.observe(section);
         });
     </script>
 
